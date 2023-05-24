@@ -10,19 +10,36 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace To_Do_List
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainListForm.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainListForm : Window
     {
-        public MainWindow()
+        //Declare class objects
+        private ToDoList newToDoList;
+        private ModifyItemsForm newModifyItemsForm;
+
+        public MainListForm()
         {
             InitializeComponent();
+
+            //Instantiate new instance of the ToDoList
+            newToDoList = new ToDoList();
+
+            //set variables
         }
+
+
+        //Event handlers
+
+
+
+
+
+
     }
 }
