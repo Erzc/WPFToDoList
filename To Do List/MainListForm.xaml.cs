@@ -30,7 +30,23 @@ namespace To_Do_List
             //Instantiate new instance of the ToDoList
             newToDoList = new ToDoList();
 
-            //set variables
+            //Set te ItemsSource for the main ListBox
+            mainformLb.ItemsSource = newToDoList.TDList;
+        }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void deleteButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
 

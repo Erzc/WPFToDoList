@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace To_Do_List
 {
-    class ShortTermItem : ToDoItem //Inherits from ToDoItem
+    class ShortTermItem : ToDoItem //Derived class inherits from ToDoItem
     {
         public ShortTermItem()
             : base()

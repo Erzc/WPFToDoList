@@ -9,7 +9,7 @@ namespace To_Do_List
 {
     class ToDoList
     {
-        //Initialize a list of sprocket class objects for customer orders
+        //Initialize a list of ToDoItem objects for to do lists
         public List<ToDoItem> toDoItemList = new List<ToDoItem>();
 
         //Properties
@@ -17,6 +17,13 @@ namespace To_Do_List
 
 
 
+
+        //For toDoItemList access in MainListForm
+        public List<ToDoItem> TDList
+        {
+            get { return toDoItemList; }
+            set { toDoItemList = value; }
+        }
 
 
 
