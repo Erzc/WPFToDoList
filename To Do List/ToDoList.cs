@@ -25,6 +25,46 @@ namespace To_Do_List
             set { toDoItemList = value; }
         }
 
+        public decimal TotalCost { get; set; }
+
+
+
+        //Methods:
+
+        public void Add(ToDoItem item)
+        {
+            toDoItemList.Add(item);
+
+            Calc();
+        }
+
+
+        public void Edit(int num, ToDoItem item)
+        {
+            toDoItemList.Add(item);
+
+            toDoItemList[num] = item;
+
+            Calc();
+        }
+
+
+
+        //Calculate the total 
+        private void Calc()
+        {
+            TotalCost = 0;
+
+            //implicit type
+            foreach (var item in toDoItemList)
+            {
+                TotalCost += item.Cost;
+            }
+        }
+
+
+
+
 
 
     }

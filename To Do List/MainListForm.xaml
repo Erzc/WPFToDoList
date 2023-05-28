@@ -10,10 +10,11 @@
         <ListBox x:Name="mainformLb" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="76,139,76,49"/>
         <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left" Margin="124,398,0,0" VerticalAlignment="Top" Width="90" Click="addButton_Click"/>
         <Button x:Name="deleteButton" Content="Delete" HorizontalAlignment="Left" Margin="586,398,0,0" VerticalAlignment="Top" Width="90" Click="deleteButton_Click"/>
-        <Button x:Name="editButton" Content="Edit" HorizontalAlignment="Center" Margin="0,398,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click"/>
         <Label Content="To Do List Application" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="250" FontSize="22" FontWeight="Bold"/>
         <TextBox HorizontalAlignment="Left" Margin="167,69,0,0" TextWrapping="Wrap" Text="To add an item, click the Add button, complete the form, and click submit.&#xD;&#xA;To edit, select an item in the list, and click the Edit button.&#xD;&#xA;To delete, select an item in the list and click the Delete button." VerticalAlignment="Top" Width="436" Height="57"/>
         <Label Content="Instructions:" HorizontalAlignment="Left" Margin="76,84,0,0" VerticalAlignment="Top" Width="86"/>
+        <Button x:Name="editButton" Content="Edit" HorizontalAlignment="Left" Margin="400,398,0,0" VerticalAlignment="Top" Width="90" Click="editButton_Click"/>
+        <TextBox x:Name="editNumTb" HorizontalAlignment="Left" Margin="326,399,0,0" TextWrapping="Wrap" Text="List # here" VerticalAlignment="Top" Width="67"/>
 
     </Grid>
 </Window>

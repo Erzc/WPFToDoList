@@ -34,13 +34,64 @@ namespace To_Do_List
             mainformLb.ItemsSource = newToDoList.TDList;
         }
 
+        //Event handlers
+
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
 
+            //Instantiate new instance of modifyitemsform
+            newModifyItemsForm = new ModifyItemsForm();
+            newModifyItemsForm.ShowDialog();
+
+            if (newModifyItemsForm.DialogResult == true)
+            {
+                MessageBox.Show("Todo item added")
+;               newToDoList.Add(newModifyItemsForm.ToDoItem);
+            }
+            else
+            {
+                MessageBox.Show("Error! Action cancelled");
+            }
+
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void editButton_Click(object sender, RoutedEventArgs e)
         {
+            //Instantiate new instance of modifyitemsform
+            newModifyItemsForm = new ModifyItemsForm();
+            newModifyItemsForm.ShowDialog();
+
+            string numVal = editNumTb.Text;
+            int itemIndex = 0;
+
+            //Parse textbox value to integer with exception handling
+            try
+            {
+                itemIndex = int.Parse(numVal);
+                MessageBox.Show($"Parsed integer: {itemIndex}"); //Debugging----------------
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Invalid number! Please enter an integer in the textbox.");
+            }
+            catch (OverflowException)
+            {
+                MessageBox.Show("This number is too small or too large.");
+            }
+
+
+            //TODO: Set item in new dialogue
+
+
+            if (newModifyItemsForm.DialogResult == true)
+            {
+                MessageBox.Show("Todo item edited")
+;               newToDoList.Edit(itemIndex, newModifyItemsForm.ToDoItem);
+            }
+            else
+            {
+                MessageBox.Show("Error! Edit cancelled");
+            }
 
         }
 
@@ -48,14 +99,5 @@ namespace To_Do_List
         {
 
         }
-
-
-        //Event handlers
-
-
-
-
-
-
     }
 }

@@ -12,7 +12,7 @@ namespace To_Do_List
 
 
         //Properties
-
+        public virtual decimal Cost { get; set; }
 
         //Constructor
 
