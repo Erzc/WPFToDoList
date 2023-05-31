@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Microsoft.Win32; //for SafeFileDialog
+using System;
 using System.Collections.Generic;
+using System.IO; //for File
 using System.Linq;
+using System.Net.Sockets;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,6 +15,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
+
+
 
 namespace To_Do_List
 {
@@ -97,7 +104,50 @@ namespace To_Do_List
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
+            if (mainformLb.SelectedItem != null)
+            {
+                MessageBox.Show("Item removed successfuly");
+                newToDoList.Delete((ToDoItem)mainformLb.SelectedItem);
+                //Updates listbox so it has all the items in the source
+                mainformLb.Items.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Error! Please select an item");
+            }
+        }
+
+        //Save final summary to a text file
+        private void saveButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Uses name textbox for the arguments needed in property
+            newToDoList.UserName = nameTb.Text;
+
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.DefaultExt = ".txt"; //Sets default file extension
+            saveDialog.Filter = "Text Files|*.txt"; //Added to display nicely
+
+            //Nullable bool, shows save to dialog
+            bool? result = saveDialog.ShowDialog();
+            if (result == true)
+            {
+                string path = saveDialog.FileName;
+                string s = "";
+
+                s += newToDoList.ToString(); //Appends ToString
+
+                foreach (ToDoItem item in newToDoList.TDList)
+                {
+                    //Appends ToString from list of class objects
+                    s += item.ToString() + "\n";
+                }
+
+                //Method WriteAllText()
+                File.WriteAllText(path, s);
+            }
 
         }
+
+
     }
 }

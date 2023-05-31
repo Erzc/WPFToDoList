@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:To_Do_List"
              StartupUri="MainListForm.xaml">
     <Application.Resources>
-         
+
     </Application.Resources>
 </Application>

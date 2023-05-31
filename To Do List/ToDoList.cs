@@ -13,9 +13,7 @@ namespace To_Do_List
         public List<ToDoItem> toDoItemList = new List<ToDoItem>();
 
         //Properties
-
-
-
+        public string UserName { get; set; }
 
 
         //For toDoItemList access in MainListForm
@@ -28,7 +26,6 @@ namespace To_Do_List
         public decimal TotalCost { get; set; }
 
 
-
         //Methods:
 
         public void Add(ToDoItem item)
@@ -36,6 +33,12 @@ namespace To_Do_List
             toDoItemList.Add(item);
 
             Calc();
+        }
+
+
+        public void Delete(ToDoItem item)
+        {
+            toDoItemList.Remove(item);
         }
 
 
