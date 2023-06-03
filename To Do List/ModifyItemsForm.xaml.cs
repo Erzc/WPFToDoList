@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
@@ -28,11 +29,24 @@ namespace To_Do_List
         //Auto-property
         public ToDoItem ToDoItem { get; set; }
 
+        private void submitButton_Click(object sender, RoutedEventArgs e)
+        {
+            string title = titleTb.Text; ;
+            string description = descriptionTb.Text;
 
+            Close();
+        }
 
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            Close();
+        }
 
-
-
-
+        private void dateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DateTime userDate = dueDateCalendar.SelectedDate ?? DateTime.MinValue;
+            Console.WriteLine($"User selected date: {userDate.ToShortDateString()}");
+        }
     }
 }

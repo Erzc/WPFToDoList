@@ -50,6 +50,8 @@ namespace To_Do_List
             newModifyItemsForm = new ModifyItemsForm();
             newModifyItemsForm.ShowDialog();
 
+
+
             if (newModifyItemsForm.DialogResult == true)
             {
                 MessageBox.Show("Todo item added")
@@ -64,41 +66,37 @@ namespace To_Do_List
 
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
-            //Instantiate new instance of modifyitemsform
-            newModifyItemsForm = new ModifyItemsForm();
-            newModifyItemsForm.ShowDialog();
+            if (mainformLb.SelectedItem != null)
+            {
 
-            string numVal = editNumTb.Text;
-            int itemIndex = 0;
+                if (newModifyItemsForm.DialogResult == true)
+                {
+                    //Instantiate new instance of modifyitemsform
+                    newModifyItemsForm = new ModifyItemsForm();
+                    newModifyItemsForm.ShowDialog();
 
-            //Parse textbox value to integer with exception handling
-            try
-            {
-                itemIndex = int.Parse(numVal);
-                MessageBox.Show($"Parsed integer: {itemIndex}"); //Debugging----------------
+                    ListBox listBox = (ListBox)sender;
+                    int userIndex = listBox.SelectedIndex;
+
+                    MessageBox.Show("Todo item edited")
+    ;               newToDoList.Edit(userIndex, (ToDoItem)mainformLb.SelectedItem);
+                    //Updates listbox so it has all the items in the source
+                    mainformLb.Items.Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("Error! Edit cancelled");
+                }
+
             }
-            catch (FormatException)
+            else
             {
-                MessageBox.Show("Invalid number! Please enter an integer in the textbox.");
-            }
-            catch (OverflowException)
-            {
-                MessageBox.Show("This number is too small or too large.");
+                MessageBox.Show("Error! Please select an item");
             }
 
 
             //TODO: Set item in new dialogue
 
-
-            if (newModifyItemsForm.DialogResult == true)
-            {
-                MessageBox.Show("Todo item edited")
-;               newToDoList.Edit(itemIndex, newModifyItemsForm.ToDoItem);
-            }
-            else
-            {
-                MessageBox.Show("Error! Edit cancelled");
-            }
 
         }
 

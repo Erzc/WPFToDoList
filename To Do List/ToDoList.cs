@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace To_Do_List
         public List<ToDoItem> toDoItemList = new List<ToDoItem>();
 
         //Properties
+        public decimal Price { get; set; }
         public string UserName { get; set; }
 
 
@@ -44,7 +46,7 @@ namespace To_Do_List
 
         public void Edit(int num, ToDoItem item)
         {
-            toDoItemList.Add(item);
+            //toDoItemList.Add(item);
 
             toDoItemList[num] = item;
 
