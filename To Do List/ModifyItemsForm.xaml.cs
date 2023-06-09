@@ -37,27 +37,44 @@ namespace To_Do_List
         {
             string title = titleTb.Text; ;
             string description = descriptionTb.Text;
-
             DateTime currentDT = DateTime.Now;
+
+            try
+            {
+                decimal cost = decimal.Parse(costTb.Text);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Error! The cost is not a decimal value.");
+            }
+            catch (OverflowException)
+            {
+                MessageBox.Show("Error! The cost value is too small or too large.");
+            }
+
+
 
             if (userDT <= currentDT)
             {
-                DialogResult = false;
+                MessageBox.Show("Error! Please choose a future deadline date.");
             }
             //Short term goal is less than 1 year from the current time
             else if ((userDT.Year + currentDT.Year) < 1)
             {
+                ToDoItem = new ShortTermItem();
                 DialogResult = true;
+                Close();
             }
             //Long term goal is greater than 1 year
             else
             {
+                ToDoItem = new LongTermItem();
                 DialogResult = true;
+                Close();
             }
 
 
 
-            Close();
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)

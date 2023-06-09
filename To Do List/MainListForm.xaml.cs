@@ -54,8 +54,9 @@ namespace To_Do_List
 
             if (newModifyItemsForm.DialogResult == true)
             {
-                MessageBox.Show("Todo item added")
+                MessageBox.Show("Todo item added");
 ;               newToDoList.Add(newModifyItemsForm.ToDoItem);
+                mainformLb.Items.Refresh();
             }
             else
             {
@@ -78,7 +79,7 @@ namespace To_Do_List
                     ListBox listBox = (ListBox)sender;
                     int userIndex = listBox.SelectedIndex;
 
-                    MessageBox.Show("Todo item edited")
+                    MessageBox.Show("Todo item edited");
     ;               newToDoList.Edit(userIndex, (ToDoItem)mainformLb.SelectedItem);
                     //Updates listbox so it has all the items in the source
                     mainformLb.Items.Refresh();
