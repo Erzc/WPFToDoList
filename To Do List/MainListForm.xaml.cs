@@ -96,7 +96,7 @@ namespace To_Do_List
             }
 
 
-            //TODO: Set item in new dialogue
+            //TODO: Set todo item in new dialogue
 
 
         }

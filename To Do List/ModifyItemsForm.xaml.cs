@@ -45,11 +45,11 @@ namespace To_Do_List
             }
             catch (FormatException)
             {
-                MessageBox.Show("Error! The cost is not a decimal value.");
+                MessageBox.Show("Error! The cost value must be a decimal.");
             }
             catch (OverflowException)
             {
-                MessageBox.Show("Error! The cost value is too small or too large.");
+                MessageBox.Show("Error! The cost value is either too small or too large.");
             }
 
 
@@ -86,7 +86,7 @@ namespace To_Do_List
         private void dateChanged(object sender, SelectionChangedEventArgs e)
         {
             userDT = dueDateCalendar.SelectedDate ?? DateTime.MinValue;
-            Console.WriteLine($"User selected date: {userDT.ToShortDateString()}");
+            Console.WriteLine($"User selected the date: {userDT.ToShortDateString()}");
         }
     }
 }
