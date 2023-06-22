@@ -22,8 +22,7 @@ namespace To_Do_List
         //Parameterless constructor
         public ToDoItem()
             : this(-1, "title", "desc", DateTime.MinValue)
-        {
-        }
+        {}
 
         //Overloaded constructor with parameters
         public ToDoItem(int id, string title, string description, DateTime currentDT)
