@@ -21,11 +21,11 @@ namespace To_Do_List
 
         //Parameterless constructor
         public ToDoItem()
-            : this(-1, "title", "desc", DateTime.MinValue)
+            : this(-1, 0, "title", "desc", DateTime.MinValue)
         {}
 
         //Overloaded constructor with parameters
-        public ToDoItem(int id, string title, string description, DateTime userDT)
+        public ToDoItem(int id, decimal cost, string title, string description, DateTime userDT)
         {
             Id = id;
             Title = title;

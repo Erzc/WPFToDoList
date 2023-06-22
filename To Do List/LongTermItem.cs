@@ -13,8 +13,8 @@ namespace To_Do_List
         {
         }
 
-        public LongTermItem(int id, string title, string description, DateTime userDT)
-            : base(id, title, description, userDT)
+        public LongTermItem(int id, decimal cost, string title, string description, DateTime userDT)
+            : base(id, cost, title, description, userDT)
         { }
 
         //Methods:
