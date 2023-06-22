@@ -16,7 +16,7 @@ namespace To_Do_List
         public int Id { get; private set; }
         public string Title { get; private set; }
         public string Desc { get; private set; }
-        public DateTime CurrentDT { get; private set; }
+        public DateTime UserDT { get; private set; }
         public virtual decimal Cost { get; set; }
 
         //Parameterless constructor
@@ -25,12 +25,12 @@ namespace To_Do_List
         {}
 
         //Overloaded constructor with parameters
-        public ToDoItem(int id, string title, string description, DateTime currentDT)
+        public ToDoItem(int id, string title, string description, DateTime userDT)
         {
             Id = id;
             Title = title;
             Desc = description;
-            CurrentDT = currentDT;
+            UserDT = userDT;
 
             Calc();
         }
@@ -44,8 +44,11 @@ namespace To_Do_List
         public override string ToString()
         {
             return
-                "Todo item number: " + Id
-                + " Cost: " + Cost;
+                "Todo item number: " + Id +
+                " Title: " + Title +
+                " Description: " + Desc +
+                " Due Date: " + UserDT +
+                " Cost: " + Cost;
         }
 
     }

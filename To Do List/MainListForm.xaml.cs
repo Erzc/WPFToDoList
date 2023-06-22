@@ -83,7 +83,7 @@ namespace To_Do_List
                     newModifyItemsForm.titleTb.Text = selectedObject.Title;
                     newModifyItemsForm.costTb.Text = selectedObject.Cost.ToString();
                     newModifyItemsForm.descriptionTb.Text = selectedObject.Desc;
-                    newModifyItemsForm.dueDateCalendar.SelectedDate = selectedObject.CurrentDT;
+                    newModifyItemsForm.dueDateCalendar.SelectedDate = selectedObject.UserDT;
 
                     newModifyItemsForm.ShowDialog();
 

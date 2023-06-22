@@ -23,8 +23,6 @@ namespace To_Do_List
     {
         DateTime userDT = new DateTime(2023, 1, 20, 12, 30, 0);
 
-
-
         public ModifyItemsForm()
         {
             InitializeComponent();
@@ -62,14 +60,14 @@ namespace To_Do_List
             //Short term goal is less than 1 year from the current time
             else if ((userDT.Year + currentDT.Year) < 1)
             {
-                ToDoItem = new ShortTermItem(id, title, description, currentDT);
+                ToDoItem = new ShortTermItem(id, title, description, userDT);
                 DialogResult = true;
                 Close();
             }
             //Long term goal is greater than 1 year
             else
             {
-                ToDoItem = new LongTermItem();
+                ToDoItem = new LongTermItem(id, title, description, userDT);
                 DialogResult = true;
                 Close();
             }

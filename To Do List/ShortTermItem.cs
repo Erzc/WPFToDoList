@@ -12,8 +12,8 @@ namespace To_Do_List
             : base()
         {}
 
-        public ShortTermItem(int id, string title, string description, DateTime currentDT)
-            : base(id, title, description, currentDT)
+        public ShortTermItem(int id, string title, string description, DateTime userDT)
+            : base(id, title, description, userDT)
         {}
 
         //Methods:
