@@ -44,7 +44,7 @@ namespace To_Do_List
         public override string ToString()
         {
             return
-                "Todo item number: " + Id +
+                "Id: " + Id +
                 " Title: " + Title +
                 " Description: " + Desc +
                 " Due Date: " + UserDT +
