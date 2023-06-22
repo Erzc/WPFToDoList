@@ -35,6 +35,7 @@ namespace To_Do_List
 
         private void submitButton_Click(object sender, RoutedEventArgs e)
         {
+            int id = Convert.ToInt32(idTb.Text);
             string title = titleTb.Text; ;
             string description = descriptionTb.Text;
             DateTime currentDT = DateTime.Now;
@@ -61,7 +62,7 @@ namespace To_Do_List
             //Short term goal is less than 1 year from the current time
             else if ((userDT.Year + currentDT.Year) < 1)
             {
-                ToDoItem = new ShortTermItem();
+                ToDoItem = new ShortTermItem(id, title, description, currentDT);
                 DialogResult = true;
                 Close();
             }

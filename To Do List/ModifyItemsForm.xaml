@@ -16,6 +16,7 @@
         <Label Content="Select deadline:" HorizontalAlignment="Left" Margin="611,165,0,0" VerticalAlignment="Top" FontSize="14"/>
         <TextBox x:Name="costTb" HorizontalAlignment="Left" Margin="575,106,0,0" TextWrapping="Wrap" Text="Example: 55.55" VerticalAlignment="Top" Width="179" Height="31" FontSize="18"/>
         <Label Content="Insert cost (if any):" HorizontalAlignment="Left" Margin="603,77,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="idTb" HorizontalAlignment="Left" Margin="40,24,0,0" TextWrapping="Wrap" Text="Item ID here" VerticalAlignment="Top" Width="134" Height="25" FontSize="18"/>
 
     </Grid>
 </Window>

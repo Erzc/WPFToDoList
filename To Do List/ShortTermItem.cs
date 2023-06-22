@@ -10,15 +10,26 @@ namespace To_Do_List
     {
         public ShortTermItem()
             : base()
+        {}
+
+        public ShortTermItem(int id, string title, string description, DateTime currentDT)
+            : base(id, title, description, currentDT)
+        {}
+
+        //Methods:
+
+        protected override void Calc()
         {
+            Cost = Id; //test
         }
 
+        public override decimal Cost { get; set; }
 
-
-
-
-
-
+        //string overload ToString()
+        public override string ToString()
+        {
+            return base.ToString() + ". Time: Short term";
+        }
 
     }
 }
