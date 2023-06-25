@@ -85,13 +85,12 @@ namespace To_Do_List
                     newModifyItemsForm.descriptionTb.Text = selectedObject.Desc;
                     newModifyItemsForm.dueDateCalendar.SelectedDate = selectedObject.UserDT;
 
-                    ListBox listBox = (ListBox)sender;
-                    int userIndex = listBox.SelectedIndex;
+                    int userIndex = mainformLb.SelectedIndex;
 
                     newModifyItemsForm.ShowDialog();
 
                     MessageBox.Show("Todo item edited");
-                    newToDoList.Edit(userIndex, (ToDoItem)mainformLb.SelectedItem);
+                    newToDoList.Edit(userIndex, newModifyItemsForm.ToDoItem);
                     //Updates listbox so it has all the items in the source
                     mainformLb.Items.Refresh();
                 }
