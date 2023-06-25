@@ -46,11 +46,11 @@ namespace To_Do_List
             }
             catch (FormatException)
             {
-                MessageBox.Show("Error! The id value must be an integer.");
+                MessageBox.Show("The id value must be an integer.");
             }
             catch (OverflowException)
             {
-                MessageBox.Show("Error! The id value is either too small or too large.");
+                MessageBox.Show("The id value is either too small or too large.");
             }
 
 
@@ -60,17 +60,17 @@ namespace To_Do_List
             }
             catch (FormatException)
             {
-                MessageBox.Show("Error! The cost value must be a decimal.");
+                MessageBox.Show("The cost must be in decimal format.");
             }
             catch (OverflowException)
             {
-                MessageBox.Show("Error! The cost value is either too small or too large.");
+                MessageBox.Show("The cost value is either too small or too large.");
             }
 
 
             if (userDT <= currentDT)
             {
-                MessageBox.Show("Error! Please choose a future deadline date.");
+                MessageBox.Show("Please choose a future deadline date.");
             }
             //Short term goal is less than 1 year from the current time
             else if ((userDT.Year + currentDT.Year) < 1)

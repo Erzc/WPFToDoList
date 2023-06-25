@@ -18,7 +18,6 @@ namespace To_Do_List
         //Properties
         public decimal Price { get; set; }
         public string UserName { get; set; }
-        public ToDoItem RewriteToDoItem { get; set; }
 
         //For toDoItemList access in MainListForm
         public List<ToDoItem> TDList
@@ -69,8 +68,8 @@ namespace To_Do_List
             string deadlinePrefix = "Deadline: ";
             string costPrefix = "Cost: ";
 
-            //Process lines to extract the string after each prefix
-            for (int i = 0; i < replToDo.Length; i += 5)
+            //Process lines to extract the string after each prefix, then convert into appropriate type
+            for (int i = 1; i < replToDo.Length; i += 6)
             {
                 int id = Convert.ToInt32(replToDo[i].Substring(idPrefix.Length));
                 string title = replToDo[i + 1].Substring(titlePrefix.Length);

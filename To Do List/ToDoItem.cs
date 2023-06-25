@@ -9,9 +9,6 @@ namespace To_Do_List
 {
     public abstract class ToDoItem //Base class
     {
-        //Fields
-        string desc = "";
-
         //Properties
         public int Id { get; private set; }
         public string Title { get; private set; }

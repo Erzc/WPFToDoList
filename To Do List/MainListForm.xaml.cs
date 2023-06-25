@@ -29,6 +29,7 @@ namespace To_Do_List
         //Declare class objects
         private ToDoList newToDoList;
         private ModifyItemsForm newModifyItemsForm;
+        string username = "";
 
         public MainListForm()
         {
@@ -60,7 +61,7 @@ namespace To_Do_List
             }
             else
             {
-                MessageBox.Show("Error! Action cancelled");
+                MessageBox.Show("Action cancelled");
             }
 
         }
@@ -97,17 +98,14 @@ namespace To_Do_List
                 }
                 else
                 {
-                    MessageBox.Show("Error! Edit cancelled");
+                    MessageBox.Show("Edit cancelled");
                 }
 
             }
             else
             {
-                MessageBox.Show("Error! Please select an item");
+                MessageBox.Show("Please select an item to edit");
             }
-
-
-            //TODO: Set todo item in new dialogue
 
 
         }
@@ -123,7 +121,7 @@ namespace To_Do_List
             }
             else
             {
-                MessageBox.Show("Error! Please select an item");
+                MessageBox.Show("Please select an item to delete");
             }
         }
 
@@ -131,29 +129,35 @@ namespace To_Do_List
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
             //Uses name textbox for the arguments needed in property
-            newToDoList.UserName = nameTb.Text;
-
-            SaveFileDialog saveDialog = new SaveFileDialog();
-            saveDialog.DefaultExt = ".txt"; //Sets default file extension
-            saveDialog.Filter = "Text Files|*.txt"; //Added to display nicely
-
-            //Nullable bool, shows save to dialog
-            bool? result = saveDialog.ShowDialog();
-            if (result == true)
+            if (nameTb.Text == "" || nameTb.Text == "Your name here")
             {
-                string path = saveDialog.FileName;
-                string s = "";
+                MessageBox.Show("Please enter your name");
+            }
+            else
+            {
+                username = nameTb.Text;
 
-                s += newToDoList.ToString(); //Appends ToString
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.DefaultExt = ".txt"; //Sets default file extension
+                saveDialog.Filter = "Text Files|*.txt"; //Added to display nicely
 
-                foreach (ToDoItem item in newToDoList.TDList)
+                //Nullable bool, shows save to dialog
+                bool? result = saveDialog.ShowDialog();
+                if (result == true)
                 {
-                    //Appends ToString from list of class objects
-                    s += item.ToString() + "\n";
-                }
+                    string path = saveDialog.FileName;
+                    string s = ""; //Clear string for multiple saves
+                    s += username.ToUpper() + "'S TODO LIST:\n"; //Append name and title
 
-                //Method WriteAllText()
-                File.WriteAllText(path, s);
+                    foreach (ToDoItem item in newToDoList.TDList)
+                    {
+                        //Appends ToString from list of class objects
+                        s += item.ToString() + "\n";
+                    }
+
+                    //Method WriteAllText()
+                    File.WriteAllText(path, s);
+                }
             }
 
         }
@@ -161,7 +165,7 @@ namespace To_Do_List
         private void openButton_Click(object sender, RoutedEventArgs e)
         {
             //Check if user wants to replace list
-            MessageBoxResult response = MessageBox.Show("Warning! This will replace your current todo list, are you sure you want to continue?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult response = MessageBox.Show("Warning!\n\nThis will replace your current todo list, are you sure you want to continue?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             //If yes, show dialog to open the text file
             if (response == MessageBoxResult.Yes)
@@ -180,6 +184,10 @@ namespace To_Do_List
 
                         //Process strings after prefixes in each line, declare new class objects, and replace the toDoItemList
                         newToDoList.RewriteList(toDoLines);
+
+                        //Display name and refresh listbox
+                        nameTb.Text = toDoLines[0];
+                        mainformLb.Items.Refresh();
                     }
                     catch (IOException ex)
                     {
@@ -189,7 +197,6 @@ namespace To_Do_List
             }
 
         }
-
 
     }
 }

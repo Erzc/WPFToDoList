@@ -29,7 +29,7 @@ namespace To_Do_List
         //string overload ToString()
         public override string ToString()
         {
-            return base.ToString() + ". Time: Long term";
+            return base.ToString() + "\nTime: Long term";
         }
 
 
