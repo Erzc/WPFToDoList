@@ -69,25 +69,26 @@ namespace To_Do_List
         {
             if (mainformLb.SelectedItem != null)
             {
+                //Instantiate new instance of modifyitemsform
+                newModifyItemsForm = new ModifyItemsForm();
+
+                var selectedObject = (ToDoItem)mainformLb.SelectedItem;
+
+                //Set selected class object's parameter into UI elements
+                newModifyItemsForm.idTb.Text = selectedObject.Id.ToString();
+                newModifyItemsForm.titleTb.Text = selectedObject.Title;
+                newModifyItemsForm.costTb.Text = selectedObject.Cost.ToString();
+                newModifyItemsForm.descriptionTb.Text = selectedObject.Desc;
+                newModifyItemsForm.dueDateCalendar.SelectedDate = selectedObject.UserDT;
+
+                int userIndex = mainformLb.SelectedIndex;
+
+                newModifyItemsForm.ShowDialog();
+
 
                 if (newModifyItemsForm.DialogResult == true)
                 {
-                    //Instantiate new instance of modifyitemsform
-                    newModifyItemsForm = new ModifyItemsForm();
-
-
-                    var selectedObject = (ToDoItem)mainformLb.SelectedItem;
-
-                    //Set selected class object's parameter into UI elements
-                    newModifyItemsForm.idTb.Text = selectedObject.Id.ToString();
-                    newModifyItemsForm.titleTb.Text = selectedObject.Title;
-                    newModifyItemsForm.costTb.Text = selectedObject.Cost.ToString();
-                    newModifyItemsForm.descriptionTb.Text = selectedObject.Desc;
-                    newModifyItemsForm.dueDateCalendar.SelectedDate = selectedObject.UserDT;
-
-                    int userIndex = mainformLb.SelectedIndex;
-
-                    newModifyItemsForm.ShowDialog();
+                   
 
                     MessageBox.Show("Todo item edited");
                     newToDoList.Edit(userIndex, newModifyItemsForm.ToDoItem);

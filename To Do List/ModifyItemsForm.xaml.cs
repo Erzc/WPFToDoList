@@ -88,7 +88,6 @@ namespace To_Do_List
             }
 
 
-
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
