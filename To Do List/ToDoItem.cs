@@ -45,10 +45,10 @@ namespace To_Do_List
         {
             return
                 "Id: " + Id +
-                " Title: " + Title +
-                " Description: " + Desc +
-                " Due Date: " + UserDT +
-                " Cost: " + Cost;
+                " \nTitle: " + Title +
+                " \nDescription: " + Desc +
+                " \nDue Date: " + UserDT +
+                " \nCost: " + Cost;
         }
 
     }

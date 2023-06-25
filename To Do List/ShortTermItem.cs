@@ -28,7 +28,7 @@ namespace To_Do_List
         //string overload ToString()
         public override string ToString()
         {
-            return base.ToString() + ". Time: Short term";
+            return base.ToString() + "\nTime: Short term";
         }
 
     }

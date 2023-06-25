@@ -158,6 +158,44 @@ namespace To_Do_List
 
         }
 
+        private void openButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Check if user wants to replace list
+            MessageBoxResult response = MessageBox.Show("Warning! This will replace your current todo list, are you sure you want to continue?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            //If yes, show dialog to open the text file
+            if (response == MessageBoxResult.Yes)
+            {
+                var openDialog = new OpenFileDialog();
+                openDialog.Filter = "Text Files|*.txt";
+
+                if (openDialog.ShowDialog() == true)
+                {
+                    string path = openDialog.FileName;
+
+                    List<string> replaceToDoList = new List<string>();
+
+                    try
+                    {
+                        //Read each from text file and save to list
+                        replaceToDoList.AddRange(File.ReadAllLines(path));
+
+                        newToDoList.RewriteList(replaceToDoList);
+
+
+
+                        //Updates listbox so it has all the items in the source
+                        mainformLb.Items.Refresh();
+                    }
+                    catch (IOException ex)
+                    {
+                        MessageBox.Show($"Error! This text file could not be read: {ex.Message}");
+                    }
+                }
+            }
+
+        }
+
 
     }
 }

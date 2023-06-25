@@ -14,8 +14,9 @@
         <TextBox HorizontalAlignment="Left" Margin="169,44,0,0" TextWrapping="Wrap" Text="To add an item, click the Add button, complete the form, and click submit.&#xD;&#xA;To edit, select an item in the list, and click the Edit button.&#xD;&#xA;To delete, select an item in the list and click the Delete button." VerticalAlignment="Top" Width="436" Height="57"/>
         <Label Content="Instructions:" HorizontalAlignment="Left" Margin="76,58,0,0" VerticalAlignment="Top" Width="86"/>
         <Button x:Name="editButton" Content="Edit" HorizontalAlignment="Left" Margin="362,393,0,0" VerticalAlignment="Top" Width="90" Click="editButton_Click"/>
-        <Button x:Name="saveButton" Content="Save List" HorizontalAlignment="Left" Margin="656,62,0,0" VerticalAlignment="Top" Width="90" Click="saveButton_Click" Height="30"/>
+        <Button x:Name="saveButton" Content="Save List" HorizontalAlignment="Left" Margin="657,38,0,0" VerticalAlignment="Top" Width="90" Click="saveButton_Click" Height="30"/>
         <TextBox x:Name="nameTb" HorizontalAlignment="Center" Margin="0,106,0,0" TextWrapping="Wrap" Text="Your name here" VerticalAlignment="Top" Width="142" Height="28" FontSize="18" FontStyle="Italic"/>
+        <Button x:Name="openButton" Content="Open List" HorizontalAlignment="Left" Margin="657,75,0,0" VerticalAlignment="Top" Width="90" Height="30" Click="openButton_Click"/>
 
     </Grid>
 </Window>
