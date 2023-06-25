@@ -56,21 +56,27 @@ namespace To_Do_List
         }
 
 
-        internal void RewriteList(List<string> repToDoList)
+        internal void RewriteList(string[] replToDo)
         {
             //Clear the list
             toDoItemList.Clear();
 
+            //Local vars
             DateTime currentDT = DateTime.Now;
+            string idPrefix = "Id: ";
+            string titlePrefix = "Title: ";
+            string descPrefix = "Description: ";
+            string deadlinePrefix = "Deadline: ";
+            string costPrefix = "Cost: ";
 
-            for (int i = 0; i < repToDoList.Count; i+=5) {
-            //foreach (string item in repToDoList)
-
-                int id = Convert.ToInt32(repToDoList[i]);
-                string title = repToDoList[i + 1];
-                string description = repToDoList[i + 2];
-                DateTime userDT = DateTime.Parse(repToDoList[i + 3]);
-                decimal cost = decimal.Parse(repToDoList[i + 4]);
+            //Process lines to extract the string after each prefix
+            for (int i = 0; i < replToDo.Length; i += 5)
+            {
+                int id = Convert.ToInt32(replToDo[i].Substring(idPrefix.Length));
+                string title = replToDo[i + 1].Substring(titlePrefix.Length);
+                string description = replToDo[i + 2].Substring(descPrefix.Length);
+                DateTime userDT = DateTime.Parse(replToDo[i + 3].Substring(deadlinePrefix.Length));
+                decimal cost = decimal.Parse(replToDo[i + 4].Substring(costPrefix.Length));
 
                 //Short term goal is less than 1 year from the current time
                 if ((userDT.Year + currentDT.Year) < 1)

@@ -173,19 +173,13 @@ namespace To_Do_List
                 {
                     string path = openDialog.FileName;
 
-                    List<string> replaceToDoList = new List<string>();
-
                     try
                     {
-                        //Read each from text file and save to list
-                        replaceToDoList.AddRange(File.ReadAllLines(path));
+                        //Read lines from text file
+                        string[] toDoLines = File.ReadAllLines(path);
 
-                        newToDoList.RewriteList(replaceToDoList);
-
-
-
-                        //Updates listbox so it has all the items in the source
-                        mainformLb.Items.Refresh();
+                        //Process strings after prefixes in each line, declare new class objects, and replace the toDoItemList
+                        newToDoList.RewriteList(toDoLines);
                     }
                     catch (IOException ex)
                     {
