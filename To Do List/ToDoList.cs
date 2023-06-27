@@ -17,7 +17,6 @@ namespace To_Do_List
 
         //Properties
         public decimal Price { get; set; }
-        public string UserName { get; set; }
 
         //For toDoItemList access in MainListForm
         public List<ToDoItem> TDList
@@ -55,7 +54,7 @@ namespace To_Do_List
         }
 
 
-        internal void RewriteList(string[] replToDo)
+        internal void Rewrite(string[] replToDo)
         {
             //Clear the list
             toDoItemList.Clear();
@@ -69,7 +68,7 @@ namespace To_Do_List
             string costPrefix = "Cost: ";
 
             //Process lines to extract the string after each prefix, then convert into appropriate type
-            for (int i = 1; i < replToDo.Length; i += 6)
+            for (int i = 2; i < replToDo.Length; i += 7)
             {
                 int id = Convert.ToInt32(replToDo[i].Substring(idPrefix.Length));
                 string title = replToDo[i + 1].Substring(titlePrefix.Length);
@@ -78,7 +77,7 @@ namespace To_Do_List
                 decimal cost = decimal.Parse(replToDo[i + 4].Substring(costPrefix.Length));
 
                 //Short term goal is less than 1 year from the current time
-                if ((userDT.Year + currentDT.Year) < 1)
+                if ((userDT.Year - currentDT.Year) < 1)
                 {
                     toDoItemList.Add(new ShortTermItem(id, cost, title, description, userDT));
                 }

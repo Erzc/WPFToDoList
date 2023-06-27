@@ -147,12 +147,12 @@ namespace To_Do_List
                 {
                     string path = saveDialog.FileName;
                     string s = ""; //Clear string for multiple saves
-                    s += username.ToUpper() + "'S TODO LIST:\n"; //Append name and title
+                    s += username + "'s ToDo List:\n\n"; //Append name and title
 
                     foreach (ToDoItem item in newToDoList.TDList)
                     {
-                        //Appends ToString from list of class objects
-                        s += item.ToString() + "\n";
+                        //Append ToString from list of class objects
+                        s += item.ToString() + "\n\n";
                     }
 
                     //Method WriteAllText()
@@ -183,10 +183,11 @@ namespace To_Do_List
                         string[] toDoLines = File.ReadAllLines(path);
 
                         //Process strings after prefixes in each line, declare new class objects, and replace the toDoItemList
-                        newToDoList.RewriteList(toDoLines);
+                        newToDoList.Rewrite(toDoLines);
 
-                        //Display name and refresh listbox
-                        nameTb.Text = toDoLines[0];
+                        //Split string based on apostrophe, display name in textbox, and refresh listbox
+                        string[] words = toDoLines[0].Split('\'');
+                        nameTb.Text = words[0];
                         mainformLb.Items.Refresh();
                     }
                     catch (IOException ex)

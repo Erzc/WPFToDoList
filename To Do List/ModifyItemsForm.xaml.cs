@@ -73,7 +73,7 @@ namespace To_Do_List
                 MessageBox.Show("Please choose a future deadline date.");
             }
             //Short term goal is less than 1 year from the current time
-            else if ((userDT.Year + currentDT.Year) < 1)
+            else if ((userDT.Year - currentDT.Year) < 1)
             {
                 ToDoItem = new ShortTermItem(id, cost, title, description, userDT);
                 DialogResult = true;
