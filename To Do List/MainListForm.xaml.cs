@@ -17,8 +17,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 
-
-
 namespace To_Do_List
 {
     /// <summary>
@@ -27,18 +25,15 @@ namespace To_Do_List
     public partial class MainListForm : Window
     {
         //Declare class objects
-        private ToDoList newToDoList;
-        private ModifyItemsForm? newModifyItemsForm;
+        private readonly ToDoList newToDoList = new();
+        private ModifyItemsForm newModifyItemsForm = new();
         private string username = "";
 
         public MainListForm()
         {
             InitializeComponent(); //Initialze windows content
 
-            //Instantiate new instance of the ToDoList
-            newToDoList = new ToDoList();
-
-            //Set te ItemsSource for the main ListBox
+            //Populate ListBox data
             mainformLb.ItemsSource = newToDoList.TDList;
         }
 

@@ -13,10 +13,9 @@ namespace To_Do_List
     class ToDoList
     {
         //Initialize a list of ToDoItem objects
-        public List<ToDoItem> toDoItemList = new List<ToDoItem>();
+        public List<ToDoItem> toDoItemList = new();
 
         //Properties
-        public decimal Price { get; set; }
 
         //For toDoItemList access in MainListForm
         public List<ToDoItem> TDList
