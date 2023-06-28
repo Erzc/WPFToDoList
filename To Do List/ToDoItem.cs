@@ -34,7 +34,7 @@ namespace To_Do_List
 
         //Methods
 
-        //Protected abstract method, implemented in child classes to calculate price
+        //Protected abstract method, implemented in child classes to calculate total costs
         protected abstract void Calc();
 
         //ToString concatenates order info in formatted string

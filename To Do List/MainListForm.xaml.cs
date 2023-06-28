@@ -28,12 +28,12 @@ namespace To_Do_List
     {
         //Declare class objects
         private ToDoList newToDoList;
-        private ModifyItemsForm newModifyItemsForm;
-        string username = "";
+        private ModifyItemsForm? newModifyItemsForm;
+        private string username = "";
 
         public MainListForm()
         {
-            InitializeComponent();
+            InitializeComponent(); //Initialze windows content
 
             //Instantiate new instance of the ToDoList
             newToDoList = new ToDoList();
@@ -51,8 +51,7 @@ namespace To_Do_List
             newModifyItemsForm = new ModifyItemsForm();
             newModifyItemsForm.ShowDialog();
 
-
-
+            //Add new to do object depending on action taken by the user when new window is closed
             if (newModifyItemsForm.DialogResult == true)
             {
                 MessageBox.Show("Todo item added");
@@ -93,7 +92,7 @@ namespace To_Do_List
 
                     MessageBox.Show("Todo item edited");
                     newToDoList.Edit(userIndex, newModifyItemsForm.ToDoItem);
-                    //Updates listbox so it has all the items in the source
+                    //Update listbox so it has all the items in the source
                     mainformLb.Items.Refresh();
                 }
                 else
@@ -116,7 +115,7 @@ namespace To_Do_List
             {
                 MessageBox.Show("Item removed successfuly");
                 newToDoList.Delete((ToDoItem)mainformLb.SelectedItem);
-                //Updates listbox so it has all the items in the source
+                //Update listbox so it has all the items in the source
                 mainformLb.Items.Refresh();
             }
             else
@@ -185,7 +184,7 @@ namespace To_Do_List
                         //Process strings after prefixes in each line, declare new class objects, and replace the toDoItemList
                         newToDoList.Rewrite(toDoLines);
 
-                        //Split string based on apostrophe, display name in textbox, and refresh listbox
+                        //Split name array element based on apostrophe, display name string in textbox, refresh listbox
                         string[] words = toDoLines[0].Split('\'');
                         nameTb.Text = words[0];
                         mainformLb.Items.Refresh();

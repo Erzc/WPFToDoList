@@ -12,7 +12,7 @@ namespace To_Do_List
 {
     class ToDoList
     {
-        //Initialize a list of ToDoItem objects for to do lists
+        //Initialize a list of ToDoItem objects
         public List<ToDoItem> toDoItemList = new List<ToDoItem>();
 
         //Properties
@@ -46,17 +46,14 @@ namespace To_Do_List
 
         public void Edit(int num, ToDoItem item)
         {
-            //toDoItemList.Add(item);
-
             toDoItemList[num] = item;
 
             Calc();
         }
 
-
-        internal void Rewrite(string[] replToDo)
+        public void Rewrite(string[] replToDo)
         {
-            //Clear the list
+            //Clear the old list
             toDoItemList.Clear();
 
             //Local vars
@@ -97,7 +94,6 @@ namespace To_Do_List
         {
             TotalCost = 0;
 
-            //implicit type
             foreach (var item in toDoItemList)
             {
                 TotalCost += item.Cost;
