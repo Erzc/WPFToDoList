@@ -62,17 +62,20 @@ namespace To_Do_List
             }
 
 
-            if (userDT <= currentDT) {
+            if (userDT <= currentDT)
+            {
                 MessageBox.Show("Please choose a future deadline date.");
             }
             //Short term goal is less than 1 year from the current time
-            else if ((userDT.Year - currentDT.Year) < 1) {
+            else if ((userDT.Year - currentDT.Year) < 1)
+            {
                 ToDoItem = new ShortTermItem(id, cost, title, description, userDT);
                 DialogResult = true;
                 Close();
             }
             //Long term goal is greater than 1 year
-            else {
+            else
+            {
                 ToDoItem = new LongTermItem(id, cost, title, description, userDT);
                 DialogResult = true;
                 Close();

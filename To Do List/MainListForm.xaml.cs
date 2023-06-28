@@ -41,7 +41,6 @@ namespace To_Do_List
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
-
             //Instantiate new instance of modifyitemsform
             newModifyItemsForm = new ModifyItemsForm();
             newModifyItemsForm.ShowDialog();
@@ -83,8 +82,6 @@ namespace To_Do_List
 
                 if (newModifyItemsForm.DialogResult == true)
                 {
-                   
-
                     MessageBox.Show("Todo item edited");
                     newToDoList.Edit(userIndex, newModifyItemsForm.ToDoItem);
                     //Update listbox so it has all the items in the source
@@ -100,7 +97,6 @@ namespace To_Do_List
             {
                 MessageBox.Show("Please select an item to edit");
             }
-
 
         }
 
