@@ -37,6 +37,14 @@ namespace To_Do_List
             mainformLb.ItemsSource = newToDoList.TDList;
         }
 
+        //Implicitly call Shutdown when the MainWindow closes
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            Application.Current.Shutdown();
+        }
+
         //Event handlers
 
         private void addButton_Click(object sender, RoutedEventArgs e)
