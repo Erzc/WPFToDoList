@@ -50,8 +50,8 @@ namespace To_Do_List
                 "\nDeadline: " + UserDT +
                 "\nCost Frequency: " + ChargeFreqS +
                 "\nTotal Charges: " + TotalNumCharges +
-                "\nOne Time Cost: " + Cost +
-                "\nTotal Cost: " + TotalCost;
+                "\nOne Time Cost: $" + Cost +
+                "\nTotal Cost: $" + TotalCost;
         }
 
     }

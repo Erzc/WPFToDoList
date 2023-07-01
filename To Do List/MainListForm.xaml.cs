@@ -81,7 +81,7 @@ namespace To_Do_List
                 newModifyItemsForm.costTb.Text = selectedObject.Cost.ToString();
                 newModifyItemsForm.descriptionTb.Text = selectedObject.Desc;
                 newModifyItemsForm.dueDateCalendar.SelectedDate = selectedObject.UserDT;
-                newModifyItemsForm.costTypeCob.SelectedItem = selectedObject.Charges;
+                newModifyItemsForm.costTypeCob.SelectedItem = selectedObject.ChargeFreqS;
 
                 int userIndex = mainformLb.SelectedIndex;
 

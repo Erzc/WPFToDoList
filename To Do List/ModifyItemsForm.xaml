@@ -14,7 +14,7 @@
         <Button x:Name="submitButton" Content="Submit" HorizontalAlignment="Left" Margin="288,369,0,0" VerticalAlignment="Top" Width="92" Height="35" FontSize="18" Click="submitButton_Click"/>
         <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="434,369,0,0" VerticalAlignment="Top" Width="91" Height="35" FontSize="18" Click="cancelButton_Click"/>
         <Label Content="Select deadline:" HorizontalAlignment="Left" Margin="634,174,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <TextBox x:Name="costTb" HorizontalAlignment="Left" Margin="687,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" Height="25" FontSize="18"/>
+        <TextBox x:Name="costTb" HorizontalAlignment="Left" Margin="687,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" Height="25" FontSize="18" LostFocus="costTb_LostFocus"/>
         <Label Content="Cost (if any):" HorizontalAlignment="Left" Margin="602,52,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="Title:" HorizontalAlignment="Left" Margin="14,52,0,0" VerticalAlignment="Top" FontSize="14" Width="62"/>
         <Label Content="Example: 55.55" HorizontalAlignment="Left" Margin="688,77,0,0" Foreground="DarkGray" VerticalAlignment="Top" FontSize="12" Width="92"/>
