@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Shapes;
@@ -58,29 +59,25 @@ namespace To_Do_List
 
             //Local vars
             DateTime currentDT = DateTime.Now;
-            string titlePrefix = "Title: ";
-            string descPrefix = "Description: ";
-            string deadlinePrefix = "Deadline: ";
 
-            string costFreqPrefix = "Cost Frequency: ";
-            string totalNumChargesPrefix = "Total Charges: ";
-            string oneCostPrefix = "One Time Cost: $";
-            string totalCostPrefix = "Total Cost: $";
+            //Reg expression pattern matches a colon, then any number of spaces (\s*),
+            //then takes the remaining information ((.*)) untilthe end of the string ($)
+            string colonPattern = @":\s*(.*)$";
+            string dollarPattern = @"\$\s*(.*)$";
 
             //Process lines to extract the string after each prefix, then convert into appropriate type
             for (int i = 2; i < replToDo.Length; i += 9)
             {
+                //
+                string title = Regex.Match(replToDo[i], colonPattern).Groups[1].Value.Trim();
+                string description = Regex.Match(replToDo[i+1], colonPattern).Groups[1].Value.Trim();
+                DateTime userDT = DateTime.Parse(Regex.Match(replToDo[i+2], colonPattern).Groups[1].Value.Trim());
 
-
-
-                string title = replToDo[i].Substring(titlePrefix.Length);
-                string description = replToDo[i + 1].Substring(descPrefix.Length);
-                DateTime userDT = DateTime.Parse(replToDo[i + 2].Substring(deadlinePrefix.Length));
-
-                string chargeFreqS = replToDo[i + 3].Substring(costFreqPrefix.Length);
-                int totalNumCharges = Convert.ToInt32(replToDo[i + 4].Substring(totalNumChargesPrefix.Length));
-                decimal cost = decimal.Parse(replToDo[i + 5].Substring(oneCostPrefix.Length));
-                decimal totalCost = decimal.Parse(replToDo[i + 6].Substring(totalCostPrefix.Length));
+                string chargeFreqS = Regex.Match(replToDo[i+3], colonPattern).Groups[1].Value.Trim();
+                int totalNumCharges = Convert.ToInt32(Regex.Match(replToDo[i+4], colonPattern).Groups[1].Value.Trim());
+                decimal cost = decimal.Parse(Regex.Match(replToDo[i+5], dollarPattern).Groups[1].Value.Trim()); //Dollar pattern
+                string totalCost = Regex.Match(replToDo[i+6], dollarPattern).Groups[1].Value.Trim(); //Dollar pattern
+                //
 
                 //Short term goal is less than 1 year from the current time
                 if ((userDT.Year - currentDT.Year) < 1)
