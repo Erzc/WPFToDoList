@@ -10,24 +10,28 @@ namespace To_Do_List
     public abstract class ToDoItem //Base class
     {
         //Properties
-        public int Id { get; private set; }
         public string Title { get; private set; }
         public string Desc { get; private set; }
         public DateTime UserDT { get; private set; }
+        public decimal TotalNumCharges { get; set; }
+        public string ChargeFreqS { get; set; }
         public virtual decimal Cost { get; set; }
+        public virtual decimal TotalCost { get; set; }
 
         //Parameterless constructor
         public ToDoItem()
-            : this(-1, 0, "title", "desc", DateTime.MinValue)
+            : this(0, 0, "none", "title", "desc", DateTime.MinValue)
         {}
 
         //Overloaded constructor with parameters
-        public ToDoItem(int id, decimal cost, string title, string description, DateTime userDT)
+        public ToDoItem(decimal cost, int totalNumCharges, string chargeFreqS, string title, string description, DateTime userDT)
         {
-            Id = id;
             Title = title;
+            Cost = cost;
+            TotalNumCharges = totalNumCharges;
             Desc = description;
             UserDT = userDT;
+            ChargeFreqS = chargeFreqS;
 
             Calc();
         }
@@ -41,11 +45,13 @@ namespace To_Do_List
         public override string ToString()
         {
             return
-                "Id: " + Id +
-                "\nTitle: " + Title +
+                "Title: " + Title +
                 "\nDescription: " + Desc +
                 "\nDeadline: " + UserDT +
-                "\nCost: " + Cost;
+                "\nCost Frequency: " + ChargeFreqS +
+                "\nTotal Charges: " + TotalNumCharges +
+                "\nOne Time Cost: " + Cost +
+                "\nTotal Cost: " + TotalCost;
         }
 
     }

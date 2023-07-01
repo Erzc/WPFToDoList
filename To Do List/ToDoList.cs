@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -57,30 +58,36 @@ namespace To_Do_List
 
             //Local vars
             DateTime currentDT = DateTime.Now;
-            string idPrefix = "Id: ";
             string titlePrefix = "Title: ";
             string descPrefix = "Description: ";
             string deadlinePrefix = "Deadline: ";
-            string costPrefix = "Cost: ";
+
+            string costChargesPrefix = "Cost Frequency: ";
+            string totalCharges = "Total Charges: ";
+            string costPrefix = "One Time Cost: ";
+            string totalCostPrefix = "Total Cost: ";
 
             //Process lines to extract the string after each prefix, then convert into appropriate type
-            for (int i = 2; i < replToDo.Length; i += 7)
+            for (int i = 2; i < replToDo.Length; i += 9)
             {
-                int id = Convert.ToInt32(replToDo[i].Substring(idPrefix.Length));
                 string title = replToDo[i + 1].Substring(titlePrefix.Length);
                 string description = replToDo[i + 2].Substring(descPrefix.Length);
                 DateTime userDT = DateTime.Parse(replToDo[i + 3].Substring(deadlinePrefix.Length));
-                decimal cost = decimal.Parse(replToDo[i + 4].Substring(costPrefix.Length));
+                
+                int costFreq = Convert.ToInt32(replToDo[i + 4].Substring(costChargesPrefix.Length));
+                string costFreqS = replToDo[i + 5].Substring(totalCharges.Length);
+                decimal cost = decimal.Parse(replToDo[i + 6].Substring(costPrefix.Length));
+                decimal totalCost = decimal.Parse(replToDo[i + 7].Substring(totalCostPrefix.Length));
 
                 //Short term goal is less than 1 year from the current time
                 if ((userDT.Year - currentDT.Year) < 1)
                 {
-                    toDoItemList.Add(new ShortTermItem(id, cost, title, description, userDT));
+                    toDoItemList.Add(new ShortTermItem(cost, costFreq, costFreqS, title, description, userDT));
                 }
                 //Long term goal is greater than 1 year
                 else
                 {
-                    toDoItemList.Add(new LongTermItem(id, cost, title, description, userDT));
+                    toDoItemList.Add(new LongTermItem(cost, costFreq, costFreqS, title, description, userDT));
                 }
 
             }
