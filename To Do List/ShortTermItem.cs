@@ -23,7 +23,7 @@ namespace To_Do_List
             TotalCost = Cost * TotalNumCharges;
         }
 
-        public override decimal Cost { get; set; }
+        public override decimal TotalCost { get; set; }
 
         //string overload ToString()
         public override string ToString()

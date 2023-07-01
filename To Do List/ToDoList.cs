@@ -70,6 +70,9 @@ namespace To_Do_List
             //Process lines to extract the string after each prefix, then convert into appropriate type
             for (int i = 2; i < replToDo.Length; i += 9)
             {
+
+
+
                 string title = replToDo[i + 1].Substring(titlePrefix.Length);
                 string description = replToDo[i + 2].Substring(descPrefix.Length);
                 DateTime userDT = DateTime.Parse(replToDo[i + 3].Substring(deadlinePrefix.Length));

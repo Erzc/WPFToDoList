@@ -129,6 +129,7 @@ namespace To_Do_List
             if (string.IsNullOrEmpty(costTb.Text))
             {
                 cost = 0;
+                costTypeCob.IsEnabled = false;
             }
             else
             {

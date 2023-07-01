@@ -78,10 +78,14 @@ namespace To_Do_List
 
                 //Set selected class object's parameter into UI elements
                 newModifyItemsForm.titleTb.Text = selectedObject.Title;
-                newModifyItemsForm.costTb.Text = selectedObject.Cost.ToString();
                 newModifyItemsForm.descriptionTb.Text = selectedObject.Desc;
                 newModifyItemsForm.dueDateCalendar.SelectedDate = selectedObject.UserDT;
+
                 newModifyItemsForm.costTypeCob.SelectedItem = selectedObject.ChargeFreqS;
+                newModifyItemsForm.costTb.Text = selectedObject.Cost.ToString();
+
+
+
 
                 int userIndex = mainformLb.SelectedIndex;
 
