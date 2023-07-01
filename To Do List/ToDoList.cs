@@ -73,14 +73,14 @@ namespace To_Do_List
 
 
 
-                string title = replToDo[i + 1].Substring(titlePrefix.Length);
-                string description = replToDo[i + 2].Substring(descPrefix.Length);
-                DateTime userDT = DateTime.Parse(replToDo[i + 3].Substring(deadlinePrefix.Length));
-                
-                int totalNumCharges = Convert.ToInt32(replToDo[i + 4].Substring(costFreqPrefix.Length));
-                string chargeFreqS = replToDo[i + 5].Substring(totalNumChargesPrefix.Length);
-                decimal cost = decimal.Parse(replToDo[i + 6].Substring(oneCostPrefix.Length));
-                decimal totalCost = decimal.Parse(replToDo[i + 7].Substring(totalCostPrefix.Length));
+                string title = replToDo[i].Substring(titlePrefix.Length);
+                string description = replToDo[i + 1].Substring(descPrefix.Length);
+                DateTime userDT = DateTime.Parse(replToDo[i + 2].Substring(deadlinePrefix.Length));
+
+                string chargeFreqS = replToDo[i + 3].Substring(costFreqPrefix.Length);
+                int totalNumCharges = Convert.ToInt32(replToDo[i + 4].Substring(totalNumChargesPrefix.Length));
+                decimal cost = decimal.Parse(replToDo[i + 5].Substring(oneCostPrefix.Length));
+                decimal totalCost = decimal.Parse(replToDo[i + 6].Substring(totalCostPrefix.Length));
 
                 //Short term goal is less than 1 year from the current time
                 if ((userDT.Year - currentDT.Year) < 1)

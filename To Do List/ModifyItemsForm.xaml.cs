@@ -65,7 +65,7 @@ namespace To_Do_List
                 }
                 else
                 {
-                    chargeFreqS = costTypeCob.SelectedItem.ToString();
+                    chargeFreqS = ((ComboBoxItem)costTypeCob.SelectedItem).Content.ToString();
                 }
 
 
