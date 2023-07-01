@@ -60,15 +60,14 @@ namespace To_Do_List
             //Local vars
             DateTime currentDT = DateTime.Now;
 
-            //Reg expression pattern matches a colon, then any number of spaces (\s*),
-            //then takes the remaining information ((.*)) untilthe end of the string ($)
+            //Regular expression pattern matches a colon, then any number of spaces (\s*),
+            //then takes the remaining information ((.*)) until the end of the string ($)
             string colonPattern = @":\s*(.*)$";
             string dollarPattern = @"\$\s*(.*)$";
 
             //Process lines to extract the string after each prefix, then convert into appropriate type
             for (int i = 2; i < replToDo.Length; i += 9)
             {
-                //
                 string title = Regex.Match(replToDo[i], colonPattern).Groups[1].Value.Trim();
                 string description = Regex.Match(replToDo[i+1], colonPattern).Groups[1].Value.Trim();
                 DateTime userDT = DateTime.Parse(Regex.Match(replToDo[i+2], colonPattern).Groups[1].Value.Trim());
@@ -77,7 +76,7 @@ namespace To_Do_List
                 int totalNumCharges = Convert.ToInt32(Regex.Match(replToDo[i+4], colonPattern).Groups[1].Value.Trim());
                 decimal cost = decimal.Parse(Regex.Match(replToDo[i+5], dollarPattern).Groups[1].Value.Trim()); //Dollar pattern
                 string totalCost = Regex.Match(replToDo[i+6], dollarPattern).Groups[1].Value.Trim(); //Dollar pattern
-                //
+
 
                 //Short term goal is less than 1 year from the current time
                 if ((userDT.Year - currentDT.Year) < 1)

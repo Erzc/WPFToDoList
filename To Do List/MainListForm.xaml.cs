@@ -84,13 +84,9 @@ namespace To_Do_List
                 newModifyItemsForm.costTypeCob.SelectedItem = selectedObject.ChargeFreqS;
                 newModifyItemsForm.costTb.Text = selectedObject.Cost.ToString();
 
-
-
-
                 int userIndex = mainformLb.SelectedIndex;
 
                 newModifyItemsForm.ShowDialog();
-
 
                 if (newModifyItemsForm.DialogResult == true)
                 {

@@ -22,13 +22,12 @@ namespace To_Do_List
     public partial class ModifyItemsForm : Window
     {
         DateTime userDT = new(2023, 1, 20, 12, 30, 0);
+        bool validCost = true;
         decimal cost = 0;
 
         public ModifyItemsForm()
         {
             InitializeComponent();
-
-            costTypeCob.IsEnabled = false;
         }
 
         //Auto-property
@@ -36,11 +35,16 @@ namespace To_Do_List
 
         private void submitButton_Click(object sender, RoutedEventArgs e)
         {
+            //Local vars
             int totalNumCharges = 0;
             string description = descriptionTb.Text, title = "", chargeFreqS = "";
             DateTime currentDT = DateTime.Now;
             TimeSpan duration = userDT - currentDT;
 
+            //Manually invoke event handler to validate cost value
+            costTb_LostFocus(costTb, new RoutedEventArgs());
+
+            //Validate correct/missing information
             if (string.IsNullOrEmpty(titleTb.Text))
             {
                 MessageBox.Show("Please enter a title.");
@@ -53,12 +57,11 @@ namespace To_Do_List
             {
                 MessageBox.Show("Please select a cost frequency.");
             }
-            else
+            else if (validCost)
             {
                 title = titleTb.Text;
 
-
-                //Check if no combobox selection made
+                //Check if no combobox selection
                 if (costTypeCob.SelectedIndex == -1)
                 {
                     chargeFreqS = "";
@@ -67,7 +70,6 @@ namespace To_Do_List
                 {
                     chargeFreqS = ((ComboBoxItem)costTypeCob.SelectedItem).Content.ToString();
                 }
-
 
                 //If first combobox item selected, get day between two dates
                 if (costTypeCob.SelectedIndex == 0) //Daily
@@ -109,6 +111,10 @@ namespace To_Do_List
                     Close();
                 }
             }
+            else
+            {
+                MessageBox.Show("The cost is not valid.");
+            }
 
         }
 
@@ -129,27 +135,24 @@ namespace To_Do_List
             if (string.IsNullOrEmpty(costTb.Text))
             {
                 cost = 0;
-                costTypeCob.IsEnabled = false;
+                validCost = true;
             }
             else
             {
                 try
                 {
                     cost = decimal.Parse(costTb.Text);
-                    costTypeCob.IsEnabled = true;
-                    costTypeCob.SelectedItem = null;
+                    validCost = true;
                 }
                 catch (FormatException)
                 {
                     MessageBox.Show("The cost must be in decimal format.");
-                    costTypeCob.IsEnabled = false;
-                    costTypeCob.SelectedItem = null;
+                    validCost = false;
                 }
                 catch (OverflowException)
                 {
                     MessageBox.Show("The cost value is either too small or too large.");
-                    costTypeCob.IsEnabled = false;
-                    costTypeCob.SelectedItem = null;
+                    validCost = false;
                 }
             }
         }
