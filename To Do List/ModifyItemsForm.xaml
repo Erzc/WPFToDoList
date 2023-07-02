@@ -5,27 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:To_Do_List"
         mc:Ignorable="d"
-        Title="ModifyItemsForm" Height="450" Width="800">
+        Title="ModifyItemsForm" Height="600
+        " Width="800">
     <Grid>
-        <Label Content="Modify your To Do item:" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <TextBox x:Name="descriptionTb" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="522" Height="254" Margin="63,110,0,0"/>
-        <TextBox x:Name="titleTb" HorizontalAlignment="Left" Margin="63,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="522" Height="25" FontSize="18"/>
-        <Calendar x:Name="dueDateCalendar" HorizontalAlignment="Left" Margin="598,194,0,0" VerticalAlignment="Top" SelectedDatesChanged="dateChanged"/>
-        <Button x:Name="submitButton" Content="Submit" HorizontalAlignment="Left" Margin="288,369,0,0" VerticalAlignment="Top" Width="92" Height="35" FontSize="18" Click="submitButton_Click"/>
-        <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="434,369,0,0" VerticalAlignment="Top" Width="91" Height="35" FontSize="18" Click="cancelButton_Click"/>
-        <Label Content="Select deadline:" HorizontalAlignment="Left" Margin="634,174,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <TextBox x:Name="costTb" HorizontalAlignment="Left" Margin="687,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" Height="25" FontSize="18" LostFocus="costTb_LostFocus"/>
-        <Label Content="Cost (if any):" HorizontalAlignment="Left" Margin="602,52,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Content="Title:" HorizontalAlignment="Left" Margin="14,52,0,0" VerticalAlignment="Top" FontSize="14" Width="62"/>
-        <Label Content="Example: 55.55" HorizontalAlignment="Left" Margin="688,77,0,0" Foreground="DarkGray" VerticalAlignment="Top" FontSize="12" Width="92"/>
-        <Label Content="Description:" HorizontalAlignment="Left" Margin="7,81,0,0" VerticalAlignment="Top" FontSize="14" Width="94"/>
-        <ComboBox x:Name="costTypeCob" HorizontalAlignment="Left" Margin="675,122,0,0" VerticalAlignment="Top" Width="101" IsReadOnly="True">
+        <Label Content="Modify your To Do item:" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+        <TextBox x:Name="descriptionTb" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="549" Height="407" Margin="28,110,0,0"/>
+        <TextBox x:Name="titleTb" HorizontalAlignment="Left" Margin="28,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="549" Height="25" FontSize="18"/>
+        <Calendar x:Name="dueDateCalendar" HorizontalAlignment="Left" Margin="593,330,0,0" VerticalAlignment="Top" SelectedDatesChanged="dateChanged"/>
+        <Button x:Name="submitButton" Content="Submit" HorizontalAlignment="Left" Margin="254,522,0,0" VerticalAlignment="Top" Width="91" Height="35" FontSize="18" Click="submitButton_Click"/>
+        <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="400,522,0,0" VerticalAlignment="Top" Width="91" Height="35" FontSize="18" Click="cancelButton_Click"/>
+        <Label Content="Select deadline:" HorizontalAlignment="Left" Margin="629,310,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="costTb" HorizontalAlignment="Left" Margin="678,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" Height="25" FontSize="18" LostFocus="costTb_LostFocus"/>
+        <Label Content="Cost (if any):" HorizontalAlignment="Left" Margin="593,107,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Title:" HorizontalAlignment="Left" Margin="28,29,0,0" VerticalAlignment="Top" FontSize="14" Width="62"/>
+        <Label Content="Example: 55.55" HorizontalAlignment="Left" Margin="679,132,0,0" Foreground="DarkGray" VerticalAlignment="Top" FontSize="12" Width="92"/>
+        <Label Content="Description:" HorizontalAlignment="Left" Margin="28,84,0,0" VerticalAlignment="Top" FontSize="14" Width="94"/>
+        <ComboBox x:Name="costTypeCob" HorizontalAlignment="Left" Margin="670,190,0,0" VerticalAlignment="Top" Width="101" IsReadOnly="True">
             <ComboBoxItem Content="Daily"/>
             <ComboBoxItem Content="Monthly"/>
             <ComboBoxItem Content="Yearly"/>
             <ComboBoxItem Content="One Time"/>
         </ComboBox>
-        <Label Content="     Cost&#xD;&#xA;Frequency:" HorizontalAlignment="Left" Margin="598,110,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="     Cost&#xD;&#xA;Frequency:" HorizontalAlignment="Left" Margin="593,178,0,0" VerticalAlignment="Top" FontSize="14"/>
 
     </Grid>
 </Window>

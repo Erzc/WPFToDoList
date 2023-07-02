@@ -15,7 +15,7 @@ namespace To_Do_List
         public DateTime UserDT { get; private set; }
         public decimal TotalNumCharges { get; set; }
         public string ChargeFreqS { get; set; }
-        public virtual decimal Cost { get; set; }
+        public decimal Cost { get; set; }
         public virtual decimal TotalCost { get; set; }
 
         //Parameterless constructor

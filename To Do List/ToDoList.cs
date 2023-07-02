@@ -42,6 +42,8 @@ namespace To_Do_List
         public void Delete(ToDoItem item)
         {
             toDoItemList.Remove(item);
+
+            Calc();
         }
 
 
@@ -91,6 +93,8 @@ namespace To_Do_List
 
             }
 
+            Calc();
+
         }
 
 
@@ -101,7 +105,7 @@ namespace To_Do_List
 
             foreach (var item in toDoItemList)
             {
-                TotalCost += item.Cost;
+                TotalCost += item.TotalCost;
             }
         }
 

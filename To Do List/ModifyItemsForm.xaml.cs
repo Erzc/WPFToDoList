@@ -28,6 +28,17 @@ namespace To_Do_List
         public ModifyItemsForm()
         {
             InitializeComponent();
+
+            //Format textboxes
+            costTb.TextAlignment = TextAlignment.Center;
+
+            //Format colors
+            descriptionTb.Background = Brushes.LightGray;
+            titleTb.Background = Brushes.LightGray;
+            costTb.Background = Brushes.LightGray;
+            costTypeCob.Background = Brushes.LightGray;
+            submitButton.Foreground = Brushes.Green;
+            cancelButton.Foreground = Brushes.DarkRed;
         }
 
         //Auto-property

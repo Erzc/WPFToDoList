@@ -35,6 +35,19 @@ namespace To_Do_List
 
             //Populate ListBox data
             mainformLb.ItemsSource = newToDoList.TDList;
+
+            //Format textboxes
+            instructTb.IsReadOnly = true;
+            totalsTb.IsReadOnly = true;
+            instructTb.TextAlignment = TextAlignment.Center;
+            totalsTb.TextAlignment = TextAlignment.Center;
+
+            //Format colors
+            mainformLb.Background = Brushes.LightGray;
+            nameTb.Background = Brushes.LightGray;
+            addButton.Foreground = Brushes.Green;
+            deleteButton.Foreground = Brushes.DarkRed;
+
         }
 
         //Implicitly call Shutdown when the MainWindow closes
@@ -59,6 +72,8 @@ namespace To_Do_List
                 MessageBox.Show("Todo item added");
                 newToDoList.Add(newModifyItemsForm.ToDoItem);
                 mainformLb.Items.Refresh();
+
+                DisplayTotals();
             }
             else
             {
@@ -94,6 +109,8 @@ namespace To_Do_List
                     newToDoList.Edit(userIndex, newModifyItemsForm.ToDoItem);
                     //Update listbox so it has all the items in the source
                     mainformLb.Items.Refresh();
+
+                    DisplayTotals();
                 }
                 else
                 {
@@ -116,6 +133,8 @@ namespace To_Do_List
                 newToDoList.Delete((ToDoItem)mainformLb.SelectedItem);
                 //Update listbox so it has all the items in the source
                 mainformLb.Items.Refresh();
+
+                DisplayTotals();
             }
             else
             {
@@ -163,7 +182,7 @@ namespace To_Do_List
         private void openButton_Click(object sender, RoutedEventArgs e)
         {
             //Check if user wants to replace list
-            MessageBoxResult response = MessageBox.Show("Warning!\n\nThis will replace your current todo list, are you sure you want to continue?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult response = MessageBox.Show("This will replace your current todo list, are you sure you want to continue?", "Caution", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             //If yes, show dialog to open the text file
             if (response == MessageBoxResult.Yes)
@@ -193,8 +212,15 @@ namespace To_Do_List
                         MessageBox.Show($"Error! This text file could not be read: {ex.Message}");
                     }
                 }
+
+                DisplayTotals();
             }
 
+        }
+
+        private void DisplayTotals()
+        {
+            totalsTb.Text = "$" + newToDoList.TotalCost;
         }
 
     }
