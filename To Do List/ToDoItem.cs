@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace To_Do_List
 {
@@ -17,6 +18,7 @@ namespace To_Do_List
         public string ChargeFreqS { get; set; }
         public decimal Cost { get; set; }
         public virtual decimal TotalCost { get; set; }
+        public TextBlock Content { get; internal set; }
 
         //Parameterless constructor
         public ToDoItem()
@@ -26,12 +28,12 @@ namespace To_Do_List
         //Overloaded constructor with parameters
         public ToDoItem(decimal cost, int totalNumCharges, string chargeFreqS, string title, string description, DateTime userDT)
         {
-            Title = title;
-            Cost = cost;
-            TotalNumCharges = totalNumCharges;
-            Desc = description;
-            UserDT = userDT;
-            ChargeFreqS = chargeFreqS;
+            this.Title = title;
+            this.Cost = cost;
+            this.TotalNumCharges = totalNumCharges;
+            this.Desc = description;
+            this.UserDT = userDT;
+            this.ChargeFreqS = chargeFreqS;
 
             Calc();
         }

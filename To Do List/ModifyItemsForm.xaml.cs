@@ -26,7 +26,6 @@ namespace To_Do_List
         decimal cost = 0;
 
 
-
         public ModifyItemsForm()
         {
             InitializeComponent();

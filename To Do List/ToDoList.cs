@@ -100,7 +100,7 @@ namespace To_Do_List
         }
 
 
-        //Calculate the total 
+        //Calculate the total price of all items
         private void Calc()
         {
             TotalCost = 0;

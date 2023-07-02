@@ -21,6 +21,8 @@
             </ListBox.ItemContainerStyle>
         </ListBox>
 
+
+
         <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left" Margin="666,481,0,0" VerticalAlignment="Top" Width="92" Height="34" Click="addButton_Click" FontSize="16"/>
         <Button x:Name="deleteButton" Content="Delete" HorizontalAlignment="Left" Margin="666,584,0,0" VerticalAlignment="Top" Width="92" Height="35" Click="deleteButton_Click" FontSize="16"/>
         <Label Content="To Do List Application" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" Width="250" FontSize="22" FontWeight="Bold"/>
@@ -37,4 +39,5 @@
         <TextBox x:Name="totalsCountTb" HorizontalAlignment="Left" Margin="676,375,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="74" Height="30" FontSize="16"/>
 
     </Grid>
+
 </Window>
