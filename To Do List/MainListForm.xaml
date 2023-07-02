@@ -9,16 +9,27 @@
         
         " Width="800">
     <Grid>
-        <ListBox x:Name="mainformLb" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="33,139,144,25"/>
-        <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left" Margin="666,481,0,0" VerticalAlignment="Top" Width="92" Height="34" Click="addButton_Click" FontSize="18"/>
-        <Button x:Name="deleteButton" Content="Delete" HorizontalAlignment="Left" Margin="666,584,0,0" VerticalAlignment="Top" Width="92" Height="35" Click="deleteButton_Click" FontSize="18"/>
+        <ListBox x:Name="mainformLb" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="33,139,144,25">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Margin" Value="5"/>
+                    <Setter Property="Height" Value="125"/>
+                    <!-- For setting height of control-->
+                    <Setter Property="Width" Value="500"/>
+                    <!-- For setting widthof control-->
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        
+        <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left" Margin="666,481,0,0" VerticalAlignment="Top" Width="92" Height="34" Click="addButton_Click" FontSize="16"/>
+        <Button x:Name="deleteButton" Content="Delete" HorizontalAlignment="Left" Margin="666,584,0,0" VerticalAlignment="Top" Width="92" Height="35" Click="deleteButton_Click" FontSize="16"/>
         <Label Content="To Do List Application" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" Width="250" FontSize="22" FontWeight="Bold"/>
         <TextBox x:Name="instructTb" HorizontalAlignment="Left" Margin="169,44,0,0" TextWrapping="Wrap" Text="To add an item, click the Add button, complete the form, and click Submit.&#xA;To edit, select an item in the list, and click the Edit button.&#xA;To delete, select an item in the list and click the Delete button." VerticalAlignment="Top" Width="436" Height="57"/>
         <Label x:Name="instructLbl" Content="Instructions:" HorizontalAlignment="Left" Margin="78,56,0,0" VerticalAlignment="Top" Width="86" FontSize="14"/>
-        <Button x:Name="editButton" Content="Edit" HorizontalAlignment="Left" Margin="666,533,0,0" VerticalAlignment="Top" Width="92" Height="35" Click="editButton_Click" FontSize="18"/>
-        <Button x:Name="saveButton" Content="Save List" HorizontalAlignment="Left" Margin="657,38,0,0" VerticalAlignment="Top" Width="91" Height="35" Click="saveButton_Click" FontSize="18"/>
+        <Button x:Name="editButton" Content="Edit" HorizontalAlignment="Left" Margin="666,533,0,0" VerticalAlignment="Top" Width="92" Height="35" Click="editButton_Click" FontSize="16"/>
+        <Button x:Name="saveButton" Content="Save List" HorizontalAlignment="Left" Margin="657,38,0,0" VerticalAlignment="Top" Width="91" Height="35" Click="saveButton_Click" FontSize="16"/>
         <TextBox x:Name="nameTb" HorizontalAlignment="Left" Margin="114,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="282" Height="28" FontSize="18" FontStyle="Italic"/>
-        <Button x:Name="openButton" Content="Open List" HorizontalAlignment="Left" Margin="657,82,0,0" VerticalAlignment="Top" Width="91" Height="35" Click="openButton_Click" FontSize="18"/>
+        <Button x:Name="openButton" Content="Open List" HorizontalAlignment="Left" Margin="657,82,0,0" VerticalAlignment="Top" Width="91" Height="35" Click="openButton_Click" FontSize="16"/>
         <Label x:Name="nameLbl" Content="Your Name:" HorizontalAlignment="Left" Margin="33,105,0,0" VerticalAlignment="Top" Width="81" FontSize="14"/>
         <Label x:Name="totalCostsLbl" Content="  Total Costs&#xD;&#xA;(for all items):" HorizontalAlignment="Left" Margin="656,255,0,0" VerticalAlignment="Top" Width="113" Height="76" FontSize="18"/>
         <TextBox x:Name="totalsTb" HorizontalAlignment="Left" Margin="661,311,0,0" TextWrapping="Wrap" Text="$0.00" VerticalAlignment="Top" Width="102" Height="30" FontSize="16"/>

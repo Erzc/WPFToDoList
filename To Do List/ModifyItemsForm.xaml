@@ -12,8 +12,8 @@
         <TextBox x:Name="descriptionTb" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="549" Height="407" Margin="28,110,0,0"/>
         <TextBox x:Name="titleTb" HorizontalAlignment="Left" Margin="28,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="549" Height="25" FontSize="18"/>
         <Calendar x:Name="dueDateCalendar" HorizontalAlignment="Left" Margin="593,330,0,0" VerticalAlignment="Top" SelectedDatesChanged="dateChanged"/>
-        <Button x:Name="submitButton" Content="Submit" HorizontalAlignment="Left" Margin="254,522,0,0" VerticalAlignment="Top" Width="91" Height="35" FontSize="18" Click="submitButton_Click"/>
-        <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="400,522,0,0" VerticalAlignment="Top" Width="91" Height="35" FontSize="18" Click="cancelButton_Click"/>
+        <Button x:Name="submitButton" Content="Submit" HorizontalAlignment="Left" Margin="254,522,0,0" VerticalAlignment="Top" Width="91" Height="35" FontSize="16" Click="submitButton_Click"/>
+        <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="400,522,0,0" VerticalAlignment="Top" Width="91" Height="35" FontSize="16" Click="cancelButton_Click"/>
         <Label Content="Select deadline:" HorizontalAlignment="Left" Margin="629,310,0,0" VerticalAlignment="Top" FontSize="14"/>
         <TextBox x:Name="costTb" HorizontalAlignment="Left" Margin="678,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" Height="25" FontSize="18" LostFocus="costTb_LostFocus"/>
         <Label Content="Cost (if any):" HorizontalAlignment="Left" Margin="593,107,0,0" VerticalAlignment="Top" FontSize="14"/>
