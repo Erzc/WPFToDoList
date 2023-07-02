@@ -39,8 +39,10 @@ namespace To_Do_List
             //Format textboxes
             instructTb.IsReadOnly = true;
             totalsTb.IsReadOnly = true;
+            totalsCountTb.IsReadOnly = true;
             instructTb.TextAlignment = TextAlignment.Center;
             totalsTb.TextAlignment = TextAlignment.Center;
+            totalsCountTb.TextAlignment = TextAlignment.Center;
 
             //Format colors
             mainformLb.Background = Brushes.LightGray;
@@ -140,6 +142,7 @@ namespace To_Do_List
             {
                 MessageBox.Show("Please select an item to delete");
             }
+
         }
 
         //Save final summary to a text file
@@ -220,7 +223,9 @@ namespace To_Do_List
 
         private void DisplayTotals()
         {
-            totalsTb.Text = "$" + newToDoList.TotalCost;
+            //Round decimal to 2 decimal places before converting to string
+            totalsTb.Text = "$" + Math.Round(newToDoList.TotalCost, 2).ToString("0.00");
+            totalsCountTb.Text = newToDoList.TDList.Count.ToString();
         }
 
     }

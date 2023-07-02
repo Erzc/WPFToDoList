@@ -13,7 +13,7 @@ namespace To_Do_List
         public string Title { get; private set; }
         public string Desc { get; private set; }
         public DateTime UserDT { get; private set; }
-        public decimal TotalNumCharges { get; set; }
+        public int TotalNumCharges { get; set; }
         public string ChargeFreqS { get; set; }
         public decimal Cost { get; set; }
         public virtual decimal TotalCost { get; set; }
@@ -41,7 +41,8 @@ namespace To_Do_List
         //Protected abstract method, implemented in child classes to calculate total costs
         protected abstract void Calc();
 
-        //ToString concatenates order info in formatted string
+        //Concatenates item info in formatted string and
+        //Round decimal to 2 decimal places
         public override string ToString()
         {
             return
@@ -50,8 +51,8 @@ namespace To_Do_List
                 "\nDeadline: " + UserDT +
                 "\nCost Frequency: " + ChargeFreqS +
                 "\nTotal Charges: " + TotalNumCharges +
-                "\nOne Time Cost: $" + Cost +
-                "\nTotal Cost: $" + TotalCost;
+                "\nOne Time Cost: $" + Math.Round(Cost, 2).ToString("0.00") +
+                "\nTotal Cost: $" + Math.Round(TotalCost, 2).ToString("0.00");
         }
 
     }

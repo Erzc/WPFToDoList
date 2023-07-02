@@ -25,6 +25,8 @@ namespace To_Do_List
         bool validCost = true;
         decimal cost = 0;
 
+
+
         public ModifyItemsForm()
         {
             InitializeComponent();

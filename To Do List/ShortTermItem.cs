@@ -14,7 +14,7 @@ namespace To_Do_List
 
         public ShortTermItem(decimal cost, int totalNumCharges, string chargeFreqS, string title, string description, DateTime userDT)
             : base(cost, totalNumCharges, chargeFreqS, title, description, userDT)
-        { }
+        {}
 
         //Methods:
 
